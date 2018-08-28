@@ -1,0 +1,283 @@
+{
+	"info": {
+		"_postman_id": "48d711a4-bd4f-45d3-85dd-39560b204fc4",
+		"name": "CustomerBusinessUnit",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "TC01",
+			"description": "",
+			"item": [
+				{
+					"name": "get",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "af31aa15-0e69-4a27-96c5-f32cbc474ea3",
+								"type": "text/javascript",
+								"exec": [
+									"eval(globals.postmanBDD);",
+									"var jsonData = JSON.parse(responseBody);",
+									"describe('Testing Sample Request in Postman Tutorial', function () {",
+									"  it('CASE 1: Should respond with statusCode = 200', function () {",
+									"      response.should.have.status(200);",
+									"  });",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://vm00001282.nl.eu.abnamro.com:15730/bcdbreferencedata/customerbusinessunits?clientGroupCodeValue=0110&langCode=EN",
+							"protocol": "http",
+							"host": [
+								"vm00001282",
+								"nl",
+								"eu",
+								"abnamro",
+								"com"
+							],
+							"port": "15730",
+							"path": [
+								"bcdbreferencedata",
+								"customerbusinessunits"
+							],
+							"query": [
+								{
+									"key": "clientGroupCodeValue",
+									"value": "0110"
+								},
+								{
+									"key": "langCode",
+									"value": "EN"
+								}
+							]
+						},
+						"description": "Verify that for CGC code 0110, business line name \"Retail\" is given in output response."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TC02",
+			"description": "Verify that for CGC code 0489, its corresponding business line \"PBNL\" is given in output response.",
+			"item": [
+				{
+					"name": "get",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"Business unit is PBNL\"] = responseBody.has(\"PBNL\");"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://vm00001282.nl.eu.abnamro.com:15730/bcdbreferencedata/customerbusinessunits?clientGroupCodeValue=0489&langCode=EN",
+							"protocol": "http",
+							"host": [
+								"vm00001282",
+								"nl",
+								"eu",
+								"abnamro",
+								"com"
+							],
+							"port": "15730",
+							"path": [
+								"bcdbreferencedata",
+								"customerbusinessunits"
+							],
+							"query": [
+								{
+									"key": "clientGroupCodeValue",
+									"value": "0489"
+								},
+								{
+									"key": "langCode",
+									"value": "EN"
+								}
+							]
+						},
+						"description": "Verify that for CGC code 0489, business line name \"PBNL\" is given in output response."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TC03",
+			"description": "Verify that for CGC code 1269, its corresponding business line \"Corporate\" is given in output response.",
+			"item": [
+				{
+					"name": "get",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"Business unit is Corporate\"] = responseBody.has(\"Corporate\");"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://vm00001282.nl.eu.abnamro.com:15730/bcdbreferencedata/customerbusinessunits?clientGroupCodeValue=1269&langCode=EN",
+							"protocol": "http",
+							"host": [
+								"vm00001282",
+								"nl",
+								"eu",
+								"abnamro",
+								"com"
+							],
+							"port": "15730",
+							"path": [
+								"bcdbreferencedata",
+								"customerbusinessunits"
+							],
+							"query": [
+								{
+									"key": "clientGroupCodeValue",
+									"value": "1269"
+								},
+								{
+									"key": "langCode",
+									"value": "EN"
+								}
+							]
+						},
+						"description": "Verify that for CGC code 1269, business line name \"Corporate\" is given in output response."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TC04",
+			"description": "Verify in case of missing CGC code in input, HTTP status code 400 (Bad request) is returned.",
+			"item": [
+				{
+					"name": "get",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 400\"] = responseCode.code === 400;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://vm00001282.nl.eu.abnamro.com:15730/bcdbreferencedata/customerbusinessunits?clientGroupCodeValue=&langCode=EN",
+							"protocol": "http",
+							"host": [
+								"vm00001282",
+								"nl",
+								"eu",
+								"abnamro",
+								"com"
+							],
+							"port": "15730",
+							"path": [
+								"bcdbreferencedata",
+								"customerbusinessunits"
+							],
+							"query": [
+								{
+									"key": "clientGroupCodeValue",
+									"value": ""
+								},
+								{
+									"key": "langCode",
+									"value": "EN"
+								}
+							]
+						},
+						"description": "HTTP Status code : 400 (Bad request) – CGC code is not filled in input request."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TC05",
+			"description": "Verify that if CGC code does not belong to any business line then HTTP Status code 404(Not found) is returned.",
+			"item": [
+				{
+					"name": "get",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 404\"] = responseCode.code === 404;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://vm00001282.nl.eu.abnamro.com:15730/bcdbreferencedata/customerbusinessunits?clientGroupCodeValue=123456&langCode=EN",
+							"protocol": "http",
+							"host": [
+								"vm00001282",
+								"nl",
+								"eu",
+								"abnamro",
+								"com"
+							],
+							"port": "15730",
+							"path": [
+								"bcdbreferencedata",
+								"customerbusinessunits"
+							],
+							"query": [
+								{
+									"key": "clientGroupCodeValue",
+									"value": "123456"
+								},
+								{
+									"key": "langCode",
+									"value": "EN"
+								}
+							]
+						},
+						"description": "HTTP Status code : 404 (Not found) -  Number given as CGC code does not belong to any business line."
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
