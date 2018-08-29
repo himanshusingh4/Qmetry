@@ -1,0 +1,69 @@
+{
+	"variables": [],
+	"info": {
+		"name": "QmetrySampleAPI",
+		"_postman_id": "4142c9a2-f65d-7b8b-3707-fd5199a9e49a",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "TC1",
+			"description": "",
+			"item": [
+				{
+					"name": "http://rest-service.guides.spring.io/greeting",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"Body matches string\"] = responseBody.has(\"Hello, World!\");"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "http://rest-service.guides.spring.io/greeting",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TC2",
+			"description": "",
+			"item": [
+				{
+					"name": "http://rest-service.guides.spring.io/greeting",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"Body matches string\"] = responseBody.has(\"Hello, World!\");"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "http://rest-service.guides.spring.io/greeting",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
